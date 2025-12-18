@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* KVR Jewellers Brand Colors */
+    --background: 35 60% 96%; /* Warm cream #FCF3E8 */
+    --foreground: 0 0% 12%; /* Deep text #1f1f1f */
+
+    --card: 35 60% 98%;
+    --card-foreground: 0 0% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+
+    /* Rich Burgundy from logo */
+    --primary: 1 67% 27%; /* #731817 */
+    --primary-foreground: 0 0% 100%;
+
+    /* Warm cream secondary */
+    --secondary: 35 60% 96%;
+    --secondary-foreground: 1 67% 27%;
+
+    --muted: 35 30% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    /* Vibrant Orange accent */
+    --accent: 27 99% 51%; /* #FE7704 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 30% 85%;
+    --input: 35 30% 85%;
+    --ring: 1 67% 27%;
+
+    --radius: 0.75rem;
+
+    /* Gold Gradient Colors */
+    --gold-light: 43 52% 63%; /* #d6b16b */
+    --gold-dark: 40 58% 49%; /* #c69b35 */
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(0 0% 0% / 0.08);
+    --shadow-md: 0 4px 16px -4px hsl(0 0% 0% / 0.12);
+    --shadow-lg: 0 8px 32px -8px hsl(0 0% 0% / 0.15);
+    --shadow-gold: 0 4px 20px -4px hsl(var(--gold-light) / 0.4);
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 35 60% 96%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 35 60% 96%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 35 60% 96%;
+
+    --primary: 35 60% 96%;
+    --primary-foreground: 1 67% 27%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 35 60% 96%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 35 30% 70%;
+
+    --accent: 27 99% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 35 60% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  /* Gold Gradient Text */
+  .text-gold-gradient {
+    @apply bg-gradient-to-r from-gold-light to-gold-dark bg-clip-text text-transparent;
+  }
+
+  /* Gold Gradient Background */
+  .bg-gold-gradient {
+    @apply bg-gradient-to-r from-gold-light to-gold-dark;
+  }
+
+  /* Premium Card Styling */
+  .card-premium {
+    @apply bg-card rounded-2xl shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  /* Luxury Container */
+  .container-luxury {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Badge Styles */
+  .badge-hallmark {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gold-gradient text-foreground;
+  }
+
+  /* Section Heading */
+  .section-heading {
+    @apply text-3xl md:text-4xl font-serif font-bold text-foreground text-center;
+  }
+
+  /* Divider with Gold */
+  .divider-gold {
+    @apply h-px bg-gradient-to-r from-transparent via-gold-light to-transparent;
+  }
+}
+
+@layer utilities {
+  /* Animation Utilities */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Staggered Animation Delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+}
